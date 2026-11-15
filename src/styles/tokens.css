@@ -63,12 +63,22 @@
     0 6px 18px -4px rgba(15, 23, 42, 0.08),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.96);
 
+  --modal-scrim-gradient: radial-gradient(
+    circle at 50% 45%,
+    rgba(15, 23, 42, 0.2) 0%,
+    rgba(15, 23, 42, 0.28) 65%,
+    rgba(15, 23, 42, 0.36) 100%
+  );
+
+  --modal-inner-surface-bg: rgba(255, 255, 255, 0.52);
+  --modal-inner-surface-border: rgba(255, 255, 255, 0.85);
+
   --touch-aura-gradient: radial-gradient(
     circle,
-    rgba(255, 253, 247, 0.74) 0%,
-    rgba(251, 211, 155, 0.36) 28%,
-    rgba(147, 197, 253, 0.16) 54%,
-    transparent 74%
+    rgba(255, 253, 247, 0.72) 0%,
+    rgba(251, 211, 155, 0.34) 35%,
+    rgba(147, 197, 253, 0.14) 70%,
+    transparent 100%
   );
   --glass-orb-bg: radial-gradient(
     circle at 32% 28%,
@@ -270,12 +280,22 @@
     0 4px 16px -2px rgba(2, 6, 23, 0.65),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
 
+  --modal-scrim-gradient: radial-gradient(
+    circle at 50% 45%,
+    rgba(2, 6, 23, 0.48) 0%,
+    rgba(2, 6, 23, 0.58) 65%,
+    rgba(2, 6, 23, 0.68) 100%
+  );
+
+  --modal-inner-surface-bg: rgba(15, 23, 42, 0.55);
+  --modal-inner-surface-border: rgba(148, 163, 184, 0.24);
+
   --touch-aura-gradient: radial-gradient(
     circle,
     rgba(224, 242, 254, 0.36) 0%,
-    rgba(96, 165, 250, 0.2) 32%,
-    rgba(56, 189, 248, 0.09) 56%,
-    transparent 74%
+    rgba(96, 165, 250, 0.2) 35%,
+    rgba(56, 189, 248, 0.08) 70%,
+    transparent 100%
   );
   --glass-orb-bg: radial-gradient(
     circle at 32% 28%,

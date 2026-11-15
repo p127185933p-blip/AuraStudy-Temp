@@ -172,21 +172,20 @@ export function TagManagerModal({
                 </div>
               </div>
               <LiquidButton
-                glassLayer={1}
                 onClick={onClose}
                 aria-label="關閉標籤管理視窗"
-                className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]"
+                className="modal-inner-surface flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]"
               >
                 <X className="relative z-10 h-5 w-5" aria-hidden="true" />
               </LiquidButton>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 pb-5 sm:px-6 sm:pb-6">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-5 sm:px-6 sm:pb-6">
 
             {/* Create new tag form */}
             <form
               onSubmit={handleCreateSubmit}
-              className="glass-layer-1 mt-4 space-y-3 rounded-[var(--radius-md)] p-3.5"
+              className="modal-inner-surface mt-4 space-y-3 rounded-[var(--radius-md)] p-3.5"
             >
               <label
                 htmlFor="new-tag-name-input"
@@ -279,7 +278,7 @@ export function TagManagerModal({
                   <li
                     key={tag.id}
                     data-testid={`tag-manager-row-${tag.id}`}
-                    className="glass-layer-1 rounded-[var(--radius-md)] p-3"
+                    className="modal-inner-surface rounded-[var(--radius-md)] p-3"
                   >
                     {isEditing ? (
                       <div className="space-y-2.5">

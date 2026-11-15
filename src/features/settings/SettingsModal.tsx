@@ -35,6 +35,8 @@ import type {
 } from '@/application/services';
 import type { ThemeMode } from '@/shared/utils';
 
+const isTestEnv = import.meta.env.MODE === 'test';
+
 export interface SettingsModalProps {
   isOpen: boolean;
   launchOrigin?: LaunchOrigin | null;
@@ -337,6 +339,25 @@ export function SettingsModal({
   const [customOpenAIModelInput, setCustomOpenAIModelInput] =
     useState<string>(openaiModel);
 
+  const [isBodyReady, setIsBodyReady] = useState<boolean>(() => isTestEnv);
+
+  useEffect(() => {
+    if (isTestEnv) return;
+    if (isOpen) {
+      setIsBodyReady(false);
+      const rafId = requestAnimationFrame(() => {
+        setIsBodyReady(true);
+      });
+      return () => cancelAnimationFrame(rafId);
+    }
+    const timerId = window.setTimeout(() => {
+      setIsBodyReady(false);
+    }, 240);
+    return () => window.clearTimeout(timerId);
+  }, [isOpen]);
+
+  const showBody = isTestEnv || isBodyReady;
+
   useEffect(() => {
     setPersistLocalChecked(persistKeyInLocalStorage);
   }, [persistKeyInLocalStorage]);
@@ -590,16 +611,17 @@ export function SettingsModal({
                 </p>
               </div>
               <LiquidButton
-                glassLayer={1}
                 onClick={onClose}
                 aria-label="關閉設定視窗"
-                className="flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]"
+                className="modal-inner-surface flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-[var(--radius-md)] text-[var(--color-text-primary)] hover:bg-[var(--color-bg-hover)]"
               >
                 <X className="relative z-10 h-5 w-5" aria-hidden="true" />
               </LiquidButton>
             </div>
 
-        <div className="flex-1 space-y-6 overflow-y-auto px-4 pb-5 pt-4 sm:px-6 sm:pb-6">
+        <div className="flex-1 overflow-y-auto overscroll-contain px-4 pb-5 pt-4 sm:px-6 sm:pb-6">
+          {showBody && (
+            <div className={`space-y-6 ${isTestEnv ? '' : 'modal-body-reveal'}`}>
           {/* Section 0: Appearance Theme */}
           <section aria-labelledby="settings-theme-heading" className="space-y-2.5">
             <h3
@@ -619,7 +641,7 @@ export function SettingsModal({
                 className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-[var(--radius-md)] border px-3 text-[length:var(--text-sm)] font-bold transition-colors ${
                   theme === 'light'
                     ? 'border-[var(--color-accent-primary)] bg-[var(--color-accent-primary-soft)] text-[var(--color-accent-primary)]'
-                    : 'glass-layer-1 text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]'
+                    : 'modal-inner-surface text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]'
                 }`}
               >
                 <Sun className="relative z-10 h-4 w-4 shrink-0" aria-hidden="true" />
@@ -631,7 +653,7 @@ export function SettingsModal({
                 className={`inline-flex min-h-[44px] items-center justify-center gap-2 rounded-[var(--radius-md)] border px-3 text-[length:var(--text-sm)] font-bold transition-colors ${
                   theme === 'dark'
                     ? 'border-[var(--color-accent-primary)] bg-[var(--color-accent-primary-soft)] text-[var(--color-accent-primary)]'
-                    : 'glass-layer-1 text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]'
+                    : 'modal-inner-surface text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]'
                 }`}
               >
                 <Moon className="relative z-10 h-4 w-4 shrink-0" aria-hidden="true" />
@@ -642,7 +664,7 @@ export function SettingsModal({
 
           {/* Section 0.5: Schedule Smart Notifications */}
           <section aria-labelledby="settings-notifications-heading" className="space-y-2.5">
-            <div className="glass-layer-1 rounded-[var(--radius-md)] p-3.5">
+            <div className="modal-inner-surface rounded-[var(--radius-md)] p-3.5">
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-start gap-2.5">
                   <Bell
@@ -1459,6 +1481,8 @@ export function SettingsModal({
               </div>
             </div>
           </section>
+            </div>
+          )}
         </div>
     </SpatialMorphModal>
   );

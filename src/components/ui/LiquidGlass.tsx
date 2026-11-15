@@ -217,6 +217,7 @@ export interface LiquidModalBackdropProps extends HTMLMotionProps<'div'> {
 
 export function LiquidModalBackdrop({
   className = '',
+  style,
   children,
   ...rest
 }: LiquidModalBackdropProps) {
@@ -226,7 +227,8 @@ export function LiquidModalBackdrop({
       animate="visible"
       exit="exit"
       variants={MODAL_BACKDROP_VARIANTS}
-      className={`fixed inset-0 z-[var(--z-modal)] flex items-end justify-center bg-slate-950/45 p-0 backdrop-blur-[4px] sm:items-center sm:p-4 ${className}`}
+      style={{ background: 'var(--modal-scrim-gradient)', ...style }}
+      className={`fixed inset-0 z-[var(--z-modal)] flex items-end justify-center p-0 sm:items-center sm:p-4 ${className}`}
       {...rest}
     >
       {children}
@@ -309,7 +311,8 @@ export function SpatialMorphModal({
         aria-label={ariaLabel}
         data-testid={dataTestId}
         onClick={onClose}
-        className={`fixed inset-0 z-[var(--z-modal)] flex items-center justify-center bg-slate-950/45 p-3 backdrop-blur-[4px] sm:p-4 ${backdropClassName}`}
+        style={{ background: 'var(--modal-scrim-gradient)' }}
+        className={`fixed inset-0 z-[var(--z-modal)] flex items-center justify-center p-3 sm:p-4 ${backdropClassName}`}
       >
         <div
           onClick={(e) => e.stopPropagation()}
@@ -336,7 +339,8 @@ export function SpatialMorphModal({
           exit="exit"
           variants={MODAL_BACKDROP_VARIANTS}
           onClick={onClose}
-          className={`fixed inset-0 z-[var(--z-modal)] flex items-center justify-center bg-slate-950/45 p-3 backdrop-blur-[4px] sm:p-4 ${backdropClassName}`}
+          style={{ background: 'var(--modal-scrim-gradient)' }}
+          className={`fixed inset-0 z-[var(--z-modal)] flex items-center justify-center p-3 sm:p-4 ${backdropClassName}`}
         >
           <motion.div
             key="spatial-modal-panel"
@@ -355,14 +359,14 @@ export function SpatialMorphModal({
               boxShadow: 'var(--glass-layer-3-shadow)',
             }}
             onClick={(e) => e.stopPropagation()}
-            className={`relative flex max-h-[85dvh] w-full flex-col overflow-hidden rounded-[var(--radius-xl)] will-change-transform ${panelClassName}`}
+            className={`relative flex max-h-[85dvh] w-full flex-col rounded-[var(--radius-xl)] will-change-transform ${panelClassName}`}
           >
             <div
               aria-hidden="true"
               className="glass-layer-3 pointer-events-none absolute inset-0 z-0 rounded-[inherit]"
               style={{ boxShadow: 'none', transform: 'translateZ(0)' }}
             />
-            <div className="relative z-10 flex min-h-0 w-full flex-1 flex-col overflow-hidden">
+            <div className="relative z-10 flex min-h-0 w-full flex-1 flex-col overflow-hidden rounded-[inherit]">
               {children}
             </div>
           </motion.div>

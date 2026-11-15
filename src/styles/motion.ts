@@ -125,24 +125,32 @@ export const MODAL_PANEL_VARIANTS: Variants = {
   },
 };
 
+export const LIQUID_SPRING_MODAL_SPATIAL: Transition = {
+  type: 'spring',
+  stiffness: 380,
+  damping: 32,
+  mass: 0.85,
+  bounce: 0,
+};
+
 /**
  * Spatial Origin Expansion Variants:
- * Launches Layer-3 modal from the clicked trigger's (deltaX, deltaY) offset
- * and collapses smoothly back into the exact same vector on exit.
+ * Launches Layer-3 modal from a gentle 0.28x origin offset and 0.82 scale
+ * with a crisp ~260ms critically damped spring to prevent Android WebView frame drops.
  */
 export const SPATIAL_MODAL_VARIANTS: Variants = {
   hidden: (delta: SpatialDelta | null) =>
     delta
       ? {
-          x: delta.deltaX,
-          y: delta.deltaY,
-          scale: 0.14,
+          x: Math.round(delta.deltaX * 0.28),
+          y: Math.round(delta.deltaY * 0.28),
+          scale: 0.82,
           opacity: 0.25,
         }
       : {
           x: 0,
           y: 12,
-          scale: 0.94,
+          scale: 0.92,
           opacity: 0,
         },
   visible: {
@@ -150,16 +158,16 @@ export const SPATIAL_MODAL_VARIANTS: Variants = {
     y: 0,
     scale: 1,
     opacity: 1,
-    transition: LIQUID_SPRING_DEFAULT,
+    transition: LIQUID_SPRING_MODAL_SPATIAL,
   },
   exit: (delta: SpatialDelta | null) =>
     delta
       ? {
-          x: delta.deltaX,
-          y: delta.deltaY,
-          scale: 0.14,
+          x: Math.round(delta.deltaX * 0.28),
+          y: Math.round(delta.deltaY * 0.28),
+          scale: 0.82,
           opacity: 0,
-          transition: { duration: 0.24, ease: [0.32, 0.72, 0, 1] },
+          transition: { duration: 0.2, ease: [0.32, 0.72, 0, 1] },
         }
       : {
           x: 0,

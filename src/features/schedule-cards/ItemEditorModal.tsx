@@ -59,6 +59,7 @@ import {
   triggerAttachmentDownload,
 } from './itemAttachmentUtils';
 
+const isTestEnv = import.meta.env.MODE === 'test';
 const PAST_TIME_BUFFER_MS = 2 * 60 * 1000;
 
 function computeDefaultFutureScheduleSlot(
@@ -186,6 +187,26 @@ export function ItemEditorModal({
   const [revisionConflict, setRevisionConflict] = useState(false);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const isOpen = Boolean(state);
+  const [isBodyReady, setIsBodyReady] = useState<boolean>(() => isTestEnv);
+
+  useEffect(() => {
+    if (isTestEnv) return;
+    if (isOpen) {
+      setIsBodyReady(false);
+      const rafId = requestAnimationFrame(() => {
+        setIsBodyReady(true);
+      });
+      return () => cancelAnimationFrame(rafId);
+    }
+    const timerId = window.setTimeout(() => {
+      setIsBodyReady(false);
+    }, 240);
+    return () => window.clearTimeout(timerId);
+  }, [isOpen]);
+
+  const showBody = isTestEnv || isBodyReady;
 
   useEffect(() => {
     if (!state) return;
@@ -540,16 +561,17 @@ export function ItemEditorModal({
                   : '新增學習項目'}
               </h2>
               <LiquidButton
-                glassLayer={1}
                 onClick={onClose}
                 aria-label="關閉視窗"
-                className="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]"
+                className="modal-inner-surface flex min-h-[44px] min-w-[44px] items-center justify-center rounded-[var(--radius-sm)] text-[var(--color-text-secondary)] hover:bg-[var(--color-bg-hover)]"
               >
                 <X className="relative z-10 h-5 w-5" />
               </LiquidButton>
             </div>
 
-        <div className="flex-1 overflow-y-auto px-5 pb-5 sm:px-6 sm:pb-6">
+        <div className="flex-1 overflow-y-auto overscroll-contain px-5 pb-5 sm:px-6 sm:pb-6">
+        {showBody && (
+          <div className={isTestEnv ? undefined : 'modal-body-reveal'}>
 
         {/* Type Switcher (Unlocked on Create, Locked on Edit) */}
         <div className="mt-4">
@@ -1166,6 +1188,8 @@ export function ItemEditorModal({
             </div>
           </div>
         </form>
+          </div>
+        )}
         </div>
       </SpatialMorphModal>
 
@@ -1181,7 +1205,7 @@ export function ItemEditorModal({
             role="dialog"
             aria-modal="true"
             aria-label={`圖片預覽：${lightboxAttachment.name}`}
-            className="fixed inset-0 z-[var(--z-lightbox)] flex flex-col items-center justify-center bg-slate-950/80 p-4 backdrop-blur-md"
+            className="fixed inset-0 z-[var(--z-lightbox)] flex flex-col items-center justify-center bg-slate-950/88 p-4"
             onClick={() => setLightboxAttachment(null)}
           >
             <motion.div

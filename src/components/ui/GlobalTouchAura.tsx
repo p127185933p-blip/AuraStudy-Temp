@@ -271,7 +271,6 @@ export function GlobalTouchAura() {
           className="-ml-[90px] -mt-[90px] h-[180px] w-[180px] rounded-full will-change-[transform,opacity]"
           style={{
             background: 'var(--touch-aura-gradient)',
-            filter: 'blur(14px)',
             opacity: 0,
             transform: 'scale(0.65)',
             transition:
