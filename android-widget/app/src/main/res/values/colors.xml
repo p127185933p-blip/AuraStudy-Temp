@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Liquid Glass Surface -->
+    <color name="widget_glass_bg">#EBFFFFFF</color>
+    <color name="widget_glass_bg_mid">#EBF4F9FF</color>
+    <color name="widget_glass_bg_end">#E8E8F2FF</color>
+    <color name="widget_glass_border">#B3FFFFFF</color>
+
+    <!-- Inner List Row Glass Cards -->
+    <color name="widget_row_bg">#B8FFFFFF</color>
+    <color name="widget_row_border">#CCFFFFFF</color>
+    <color name="widget_row_expired_bg">#75FFFFFF</color>
+
+    <!-- Status Pill Capsule -->
+    <color name="widget_pill_bg">#D9EFF6FF</color>
+    <color name="widget_pill_border">#99BFDBFE</color>
+    <color name="widget_pill_text">#1D4ED8</color>
+
+    <!-- High-Contrast Typography -->
+    <color name="widget_text_primary">#0F172A</color>
+    <color name="widget_text_secondary">#475569</color>
+    <color name="widget_divider">#1A0F172A</color>
+
+    <!-- Semantic Accent Stripes -->
+    <color name="widget_accent_schedule">#0284C7</color>
+    <color name="widget_accent_deadline">#D97706</color>
+</resources>

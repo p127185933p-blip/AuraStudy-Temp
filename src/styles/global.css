@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: clip;
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: var(--border-width-focus) solid var(--color-accent-primary);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Three-Tier Liquid Glass Surface Materials (GPU-Static Backdrop Blur)
+   ========================================================================== */
+
+.glass-layer-1 {
+  background-color: var(--glass-layer-1-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid var(--glass-layer-1-border);
+  border-top-color: var(--glass-layer-1-border-top);
+  border-bottom-color: var(--glass-layer-1-border-bottom);
+  box-shadow: var(--glass-layer-1-shadow);
+}
+
+.glass-layer-2 {
+  background-color: var(--glass-layer-2-bg);
+  backdrop-filter: blur(20px) saturate(170%);
+  -webkit-backdrop-filter: blur(20px) saturate(170%);
+  border: 1px solid var(--glass-layer-2-border);
+  border-top-color: var(--glass-layer-2-border-top);
+  border-bottom-color: var(--glass-layer-2-border-bottom);
+  box-shadow: var(--glass-layer-2-shadow);
+}
+
+.glass-layer-3 {
+  background-color: var(--glass-layer-3-bg);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--glass-layer-3-border);
+  border-top-color: var(--glass-layer-3-border-top);
+  border-bottom-color: var(--glass-layer-3-border-bottom);
+  box-shadow: var(--glass-layer-3-shadow);
+}
+
+/* Floating AI Glowing Orb Surface */
+.liquid-ai-orb {
+  background: var(--glass-orb-bg);
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border: 1.5px solid var(--glass-layer-3-border-top);
+  box-shadow: var(--glass-orb-shadow);
+}
+
+.floating-ai-safe-bottom {
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

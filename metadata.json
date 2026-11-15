@@ -1,0 +1,8 @@
+{
+  "name": "Remix AuraStudy",
+  "description": "AuraStudy — 簡約、整齊、優雅的學習行程與 AI 提案協作平台",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

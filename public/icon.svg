@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#1d4ed8" />
+  <rect x="88" y="104" width="336" height="304" rx="44" fill="#ffffff" />
+  <rect x="88" y="104" width="336" height="76" rx="44" fill="#eff6ff" />
+  <rect x="88" y="148" width="336" height="32" fill="#eff6ff" />
+  <line x1="88" y1="180" x2="424" y2="180" stroke="#cbd5e1" stroke-width="8" />
+  <!-- Calendar top binding rings -->
+  <rect x="156" y="72" width="24" height="56" rx="12" fill="#0f172a" />
+  <rect x="332" y="72" width="24" height="56" rx="12" fill="#0f172a" />
+  <!-- Deadline anchor bar (amber) -->
+  <rect x="132" y="216" width="248" height="38" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="8" />
+  <circle cx="160" cy="235" r="9" fill="#d97706" />
+  <!-- Schedule block 1 (blue) -->
+  <rect x="132" y="276" width="184" height="44" rx="16" fill="#2563eb" />
+  <!-- AI Proposal block (emerald) -->
+  <rect x="200" y="338" width="180" height="40" rx="16" fill="#ecfdf5" stroke="#10b981" stroke-width="8" />
+</svg>

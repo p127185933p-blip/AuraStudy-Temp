@@ -1,0 +1,340 @@
+/* ==========================================================================
+   AuraStudy Design System Tokens — Liquid Glass Edition
+   Visual Language: 平衡通透玻璃 · 晨曦暖杏與靜謐海藍極光
+   ========================================================================== */
+
+:root {
+  /* --- Surface & Canvas (60% Neutral Canvas / 30% Structural Surface) --- */
+  --color-bg-canvas: #f2f5fb;
+  --color-bg-surface: rgba(255, 255, 255, 0.72);
+  --color-bg-subtle: rgba(241, 245, 251, 0.64);
+  --color-bg-hover: rgba(226, 234, 246, 0.72);
+
+  /* --- Ambient Aurora Backdrop (Light: Dawn Warm Apricot & Serene Sea Blue) --- */
+  --aurora-base-gradient: linear-gradient(
+    135deg,
+    #f7efe8 0%,
+    #f3f6fc 48%,
+    #ebf3fc 100%
+  );
+  --aurora-orb-1: radial-gradient(
+    circle,
+    rgba(251, 191, 134, 0.42) 0%,
+    rgba(253, 224, 189, 0.2) 44%,
+    transparent 72%
+  );
+  --aurora-orb-2: radial-gradient(
+    circle,
+    rgba(120, 182, 245, 0.36) 0%,
+    rgba(186, 220, 252, 0.16) 48%,
+    transparent 74%
+  );
+  --aurora-orb-3: radial-gradient(
+    circle,
+    rgba(162, 208, 244, 0.26) 0%,
+    rgba(252, 214, 178, 0.14) 52%,
+    transparent 76%
+  );
+
+  /* --- Three-Tier Liquid Glass Surface Tokens (Light Mode) --- */
+  --glass-layer-1-bg: rgba(255, 255, 255, 0.56);
+  --glass-layer-1-border: rgba(203, 213, 225, 0.58);
+  --glass-layer-1-border-top: rgba(255, 255, 255, 0.88);
+  --glass-layer-1-border-bottom: rgba(148, 163, 184, 0.3);
+  --glass-layer-1-shadow:
+    0 4px 20px -4px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.82);
+
+  --glass-layer-2-bg: rgba(255, 255, 255, 0.68);
+  --glass-layer-2-border: rgba(203, 213, 225, 0.65);
+  --glass-layer-2-border-top: rgba(255, 255, 255, 0.95);
+  --glass-layer-2-border-bottom: rgba(148, 163, 184, 0.36);
+  --glass-layer-2-shadow:
+    0 10px 30px -8px rgba(15, 23, 42, 0.1),
+    0 2px 8px -2px rgba(15, 23, 42, 0.05),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92);
+
+  --glass-layer-3-bg: rgba(255, 255, 255, 0.82);
+  --glass-layer-3-border: rgba(203, 213, 225, 0.72);
+  --glass-layer-3-border-top: rgba(255, 255, 255, 0.98);
+  --glass-layer-3-border-bottom: rgba(148, 163, 184, 0.44);
+  --glass-layer-3-shadow:
+    0 24px 56px -12px rgba(15, 23, 42, 0.18),
+    0 6px 18px -4px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.96);
+
+  --touch-aura-gradient: radial-gradient(
+    circle,
+    rgba(255, 253, 247, 0.74) 0%,
+    rgba(251, 211, 155, 0.36) 28%,
+    rgba(147, 197, 253, 0.16) 54%,
+    transparent 74%
+  );
+  --glass-orb-bg: radial-gradient(
+    circle at 32% 28%,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(224, 240, 255, 0.72) 40%,
+    rgba(147, 197, 253, 0.42) 72%,
+    rgba(59, 130, 246, 0.36) 100%
+  );
+  --glass-orb-shadow:
+    0 16px 34px -6px rgba(29, 78, 216, 0.28),
+    0 6px 16px -3px rgba(245, 158, 11, 0.18),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(15, 23, 42, 0.18);
+
+  /* --- High-Contrast Ink Typography --- */
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #ffffff;
+
+  /* --- Primary Brand Accent (10% Accent Budget) --- */
+  --color-accent-primary: #1d4ed8;
+  --color-accent-primary-hover: #1e40af;
+  --color-accent-primary-soft: rgba(219, 234, 254, 0.72);
+  --color-accent-primary-border: rgba(147, 197, 253, 0.85);
+  --color-now-indicator: #ef4444;
+
+  /* --- Domain Differentiation: Schedule (Time-blocked startAt -> endAt) --- */
+  --color-schedule-bg: rgba(239, 246, 255, 0.74);
+  --color-schedule-border: rgba(59, 130, 246, 0.68);
+  --color-schedule-accent: #2563eb;
+  --color-schedule-text: #1e3a8a;
+
+  /* --- Domain Differentiation: Deadline (dueDate anchor, no conflict) --- */
+  --color-deadline-bg: rgba(255, 251, 235, 0.78);
+  --color-deadline-border: rgba(245, 158, 11, 0.72);
+  --color-deadline-accent: #d97706;
+  --color-deadline-text: #92400e;
+
+  /* --- AI Proposal Semantic Tokens (CREATE / UPDATE / DELETE) --- */
+  --color-proposal-create-bg: rgba(236, 253, 245, 0.78);
+  --color-proposal-create-border: rgba(16, 185, 129, 0.72);
+  --color-proposal-create-accent: #059669;
+  --color-proposal-create-text: #065f46;
+
+  --color-proposal-update-bg: rgba(240, 249, 255, 0.78);
+  --color-proposal-update-border: rgba(14, 165, 233, 0.72);
+  --color-proposal-update-accent: #0284c7;
+  --color-proposal-update-text: #075985;
+
+  --color-proposal-delete-bg: rgba(254, 242, 242, 0.78);
+  --color-proposal-delete-border: rgba(248, 113, 113, 0.75);
+  --color-proposal-delete-accent: #dc2626;
+  --color-proposal-delete-text: #991b1b;
+
+  --color-danger-surface: rgba(254, 242, 242, 0.85);
+  --color-danger-border: rgba(248, 113, 113, 0.75);
+  --color-danger-text: #991b1b;
+
+  /* --- Borders & Tactile Crisp Shadows --- */
+  --border-width-hairline: 1px;
+  --border-width-card: 1.5px;
+  --border-width-focus: 2px;
+
+  --color-border-subtle: rgba(203, 213, 225, 0.55);
+  --color-border-strong: rgba(148, 163, 184, 0.45);
+  --color-border-ink: #0f172a;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --shadow-card: var(--glass-layer-1-shadow);
+  --shadow-card-strong: var(--glass-layer-2-shadow);
+  --shadow-elevated: var(--glass-layer-3-shadow);
+
+  /* --- Typography Scale --- */
+  --font-sans: 'Plus Jakarta Sans', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-display: clamp(1.75rem, 3vw, 2.375rem);
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.65;
+
+  /* --- Spacing & Responsive Layout Tokens (Mobile-First for Android) --- */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+
+  --space-page-x: 1rem;
+  --space-page-y: 1.25rem;
+  --space-card-pad: 1.25rem;
+  --space-section-gap: 1.25rem;
+  --container-max-width: 1120px;
+
+  /* --- Ergonomics, Motion & Unified Z-Index Layers --- */
+  --touch-target-min: 44px;
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-panel: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --z-timeline-card: 10;
+  --z-timeline-header: 20;
+  --z-floating-ai: 30;
+  --z-popover: 40;
+  --z-modal: 50;
+  --z-lightbox: 60;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --space-page-x: 2rem;
+    --space-page-y: 2rem;
+    --space-card-pad: 1.5rem;
+    --space-section-gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --space-page-x: 2.5rem;
+    --space-page-y: 2.5rem;
+    --space-card-pad: 1.75rem;
+    --space-section-gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Token Overrides (深海黑曜石玻璃 · 深海藍與暖晨微光)
+   ========================================================================== */
+:root[data-theme="dark"] {
+  --color-bg-canvas: #060b16;
+  --color-bg-surface: rgba(15, 23, 42, 0.68);
+  --color-bg-subtle: rgba(30, 41, 59, 0.62);
+  --color-bg-hover: rgba(51, 65, 85, 0.68);
+
+  --aurora-base-gradient: linear-gradient(
+    145deg,
+    #070d1b 0%,
+    #0a1324 52%,
+    #0e1526 100%
+  );
+  --aurora-orb-1: radial-gradient(
+    circle,
+    rgba(245, 158, 11, 0.16) 0%,
+    rgba(251, 146, 60, 0.06) 45%,
+    transparent 74%
+  );
+  --aurora-orb-2: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.28) 0%,
+    rgba(56, 189, 248, 0.11) 50%,
+    transparent 76%
+  );
+  --aurora-orb-3: radial-gradient(
+    circle,
+    rgba(14, 165, 233, 0.18) 0%,
+    rgba(30, 58, 138, 0.12) 50%,
+    transparent 78%
+  );
+
+  --glass-layer-1-bg: rgba(15, 23, 42, 0.56);
+  --glass-layer-1-border: rgba(148, 163, 184, 0.18);
+  --glass-layer-1-border-top: rgba(255, 255, 255, 0.16);
+  --glass-layer-1-border-bottom: rgba(2, 6, 23, 0.65);
+  --glass-layer-1-shadow:
+    0 6px 24px -4px rgba(2, 6, 23, 0.52),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+
+  --glass-layer-2-bg: rgba(17, 27, 46, 0.68);
+  --glass-layer-2-border: rgba(148, 163, 184, 0.22);
+  --glass-layer-2-border-top: rgba(255, 255, 255, 0.22);
+  --glass-layer-2-border-bottom: rgba(2, 6, 23, 0.78);
+  --glass-layer-2-shadow:
+    0 12px 32px -6px rgba(2, 6, 23, 0.62),
+    0 2px 8px -1px rgba(2, 6, 23, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
+
+  --glass-layer-3-bg: rgba(17, 24, 39, 0.82);
+  --glass-layer-3-border: rgba(148, 163, 184, 0.26);
+  --glass-layer-3-border-top: rgba(255, 255, 255, 0.26);
+  --glass-layer-3-border-bottom: rgba(2, 6, 23, 0.88);
+  --glass-layer-3-shadow:
+    0 24px 56px -12px rgba(0, 0, 0, 0.8),
+    0 4px 16px -2px rgba(2, 6, 23, 0.65),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+
+  --touch-aura-gradient: radial-gradient(
+    circle,
+    rgba(224, 242, 254, 0.36) 0%,
+    rgba(96, 165, 250, 0.2) 32%,
+    rgba(56, 189, 248, 0.09) 56%,
+    transparent 74%
+  );
+  --glass-orb-bg: radial-gradient(
+    circle at 32% 28%,
+    rgba(224, 242, 254, 0.58) 0%,
+    rgba(59, 130, 246, 0.44) 44%,
+    rgba(30, 58, 138, 0.78) 80%,
+    rgba(15, 23, 42, 0.9) 100%
+  );
+  --glass-orb-shadow:
+    0 18px 38px -6px rgba(37, 99, 235, 0.46),
+    0 6px 18px -3px rgba(245, 158, 11, 0.2),
+    inset 0 1.5px 2px rgba(255, 255, 255, 0.8),
+    inset 0 -4px 10px rgba(15, 23, 42, 0.18);
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  --color-accent-primary: #3b82f6;
+  --color-accent-primary-hover: #2563eb;
+  --color-accent-primary-soft: rgba(37, 99, 235, 0.24);
+  --color-accent-primary-border: rgba(96, 165, 250, 0.55);
+  --color-now-indicator: #f87171;
+
+  --color-schedule-bg: rgba(30, 58, 138, 0.34);
+  --color-schedule-border: rgba(96, 165, 250, 0.62);
+  --color-schedule-accent: #60a5fa;
+  --color-schedule-text: #dbeafe;
+
+  --color-deadline-bg: rgba(146, 64, 14, 0.32);
+  --color-deadline-border: rgba(251, 191, 36, 0.62);
+  --color-deadline-accent: #fbbf24;
+  --color-deadline-text: #fef3c7;
+
+  --color-proposal-create-bg: rgba(6, 95, 70, 0.34);
+  --color-proposal-create-border: rgba(52, 211, 153, 0.62);
+  --color-proposal-create-accent: #34d399;
+  --color-proposal-create-text: #d1fae5;
+
+  --color-proposal-update-bg: rgba(7, 89, 133, 0.34);
+  --color-proposal-update-border: rgba(56, 189, 248, 0.62);
+  --color-proposal-update-accent: #38bdf8;
+  --color-proposal-update-text: #e0f2fe;
+
+  --color-proposal-delete-bg: rgba(153, 27, 27, 0.34);
+  --color-proposal-delete-border: rgba(248, 113, 113, 0.62);
+  --color-proposal-delete-accent: #f87171;
+  --color-proposal-delete-text: #fee2e2;
+
+  --color-danger-surface: rgba(153, 27, 27, 0.42);
+  --color-danger-border: rgba(248, 113, 113, 0.62);
+  --color-danger-text: #fee2e2;
+
+  --color-border-subtle: rgba(148, 163, 184, 0.16);
+  --color-border-strong: rgba(148, 163, 184, 0.28);
+  --color-border-ink: #94a3b8;
+
+  --shadow-card: var(--glass-layer-1-shadow);
+  --shadow-card-strong: var(--glass-layer-2-shadow);
+  --shadow-elevated: var(--glass-layer-3-shadow);
+}
